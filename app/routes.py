@@ -4,7 +4,7 @@ import platform
 
 main = Blueprint("main", __name__)
 
-@main.route("/helath", methods=["GET"])
+@main.route("/health", methods=["GET"])
 def system_health():
     return jsonify({
         "status": "online",
