@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 import logging
 from app.routes import main
 
-def create_app():
+def create_app(config_class=None):
 
     logging.basicConfig(
         filename="pypulse.log",
@@ -12,6 +12,7 @@ def create_app():
     )
 
     app = Flask(__name__)
+    app.config.from_object(config_class or "app.config.Config")
 
     app.register_blueprint(main, url_prefix="/api")
 
