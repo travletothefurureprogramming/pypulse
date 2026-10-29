@@ -2,6 +2,9 @@ from flask import Blueprint, jsonify
 from datetime import datetime, timezone
 from app.monitor import cpu, ram, disk, system_boot_time
 import platform
+import logging
+
+logger = logging.getLogger(__name__)
 
 main = Blueprint("main", __name__)
 
@@ -15,6 +18,7 @@ def system_health():
         }), 200
 
     except Exception:
+        logger.exception("Health check failed")
         return jsonify({
             "status": "error",
             "message": "Health check failed"
@@ -31,6 +35,7 @@ def system_info():
         }), 200
 
     except Exception:
+        logger.exception("Failed to retrieve system information")
         return jsonify({
             "status": "error",
             "message": "Failed to retrieve system information"
@@ -47,6 +52,7 @@ def metrics():
         }), 200
 
     except Exception:
+        logger.exception("Failed to retrieve system metrics")
         return jsonify({
             "status": "error",
             "message": "Failed to retrieve system metrics"
