@@ -1,5 +1,5 @@
-from flask import Flask
-from app.routes import main, jsonify
+from flask import Flask, jsonify
+from app.routes import main
 
 def create_app():
     app = Flask(__name__)
