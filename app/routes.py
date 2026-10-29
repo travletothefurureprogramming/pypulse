@@ -7,26 +7,47 @@ main = Blueprint("main", __name__)
 
 @main.route("/health", methods=["GET"])
 def system_health():
-    return jsonify({
-        "status": "online",
-        "service": "PyPulse",
-        "timestamp": datetime.now(timezone.utc).isoformat()
-    }), 200
+    try:
+        return jsonify({
+            "status": "online",
+            "service": "PyPulse",
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }), 200
+
+    except Exception:
+        return jsonify({
+            "status": "error",
+            "message": "Health check failed"
+        }), 500
 
 @main.route("/system", methods=["GET"])
 def system_info():
-    return jsonify({
-        "hostname": platform.node(),
-        "operating_system": platform.system(),
-        "os_release": platform.release(),
-        "python_version": platform.python_version()
-    }), 200
+    try:
+        return jsonify({
+            "hostname": platform.node(),
+            "operating_system": platform.system(),
+            "os_release": platform.release(),
+            "python_version": platform.python_version()
+        }), 200
+
+    except Exception:
+        return jsonify({
+            "status": "error",
+            "message": "Failed to retrieve system information"
+        }), 500
 
 @main.route("/metrics", methods=["GET"])
 def metrics():
-    return jsonify({
-        "cpu_percent": cpu(),
-        "ram_percent": ram(),
-        "disk_percent": disk(),
-        "boot_time": system_boot_time()
-    }), 200
+    try:
+        return jsonify({
+            "cpu_percent": cpu(),
+            "ram_percent": ram(),
+            "disk_percent": disk(),
+            "boot_time": system_boot_time()
+        }), 200
+
+    except Exception:
+        return jsonify({
+            "status": "error",
+            "message": "Failed to retrieve system metrics"
+        }), 500
