@@ -18,16 +18,34 @@ Clone the repository
 git clone https://github.com/travletothefurureprogramming/pypulse.git
 ```
 
+Go to folder
+
+```
+cd pypulse
+```
+
+
 Create and activate virtual enviroment:
 
 ```
 python -m venv .venv
 ```
 
+or 
+
+```
+python3 -m venv .venv
+
 Windows:
 
 ```
 .venv/Scripts/activate
+```
+
+Linux:
+
+```
+source .venv/bin/activate
 ```
 
 Install the dependencies:
