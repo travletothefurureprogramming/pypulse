@@ -6,14 +6,18 @@ from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
 def cpu():
     return cpu_percent(interval=1)
 
+
 def ram():
     return virtual_memory().percent
+
 
 def disk():
     return disk_usage(r"C:" if platform.system == "Windows" else "/").percent
 
+
 def system_boot_time():
     return boot_time()
+
 
 if __name__ == "__main__":
     print(f"CPU: {cpu()}%")
