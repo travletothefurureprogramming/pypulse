@@ -1,15 +1,22 @@
 from flask import Flask, jsonify
 import logging
 from app.routes import main
+from app.settings import LOG_FILE, LOG_LEVEL
 
 def create_app(config_class=None):
 
+    log_level = getattr(logging, LOG_LEVEL, None)
+
+    if not isinstance(log_level, int):
+        raise ValueError(f"Invalid logging level: {LOG_LEVEL}")
+
     logging.basicConfig(
-        filename="pypulse.log",
-        level=logging.INFO,
+        filename=LOG_FILE,
+        level=log_level,
         format="%(asctime)s %(levelname)s %(name)s: %(message)s",
         force=True
     )
+
 
     app = Flask(__name__)
     app.config.from_object(config_class or "app.config.Config")

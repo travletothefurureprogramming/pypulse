@@ -1,10 +1,10 @@
 
 from app import create_app
 import app.routes as routes
-
+from app.config import TestingConfig
 
 def test_root():
-    app = create_app()
+    app = create_app(TestingConfig)
     client = app.test_client()
 
     response = client.get("/")
@@ -13,7 +13,7 @@ def test_root():
     assert response.json["status"] == "online"
 
 def test_health():
-    app = create_app()
+    app = create_app(TestingConfig)
     client = app.test_client()
 
     response = client.get("/api/health")
@@ -22,7 +22,7 @@ def test_health():
     assert response.json["status"] == "online"
 
 def test_system():
-    app = create_app()
+    app = create_app(TestingConfig)
     client = app.test_client()
 
     response = client.get("/api/system")
@@ -33,7 +33,7 @@ def test_system():
     assert "python_version" in response.json
 
 def test_metrics():
-    app = create_app()
+    app = create_app(TestingConfig)
     client = app.test_client()
 
     response = client.get("/api/metrics")
@@ -63,7 +63,7 @@ def test_metrics_error(monkeypatch):
     monkeypatch.setattr(routes, "disk", fake_disk)
     monkeypatch.setattr(routes, "system_boot_time", fake_boot_time)
 
-    app = create_app()
+    app = create_app(TestingConfig)
     client = app.test_client()
 
     response = client.get("/api/metrics")

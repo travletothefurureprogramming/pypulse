@@ -1,9 +1,7 @@
 from app import create_app, settings
-from app.config import DevelopmentConfig, TestingConfig
+from app.config import Config
 
-app = create_app()
-dev_app = create_app(DevelopmentConfig)
-test_app = create_app(TestingConfig)
+app = create_app(Config)
 
 if __name__ == "__main__":
     app.run(
