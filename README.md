@@ -35,6 +35,7 @@ or
 
 ```
 python3 -m venv .venv
+```
 
 Windows:
 
