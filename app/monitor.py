@@ -1,5 +1,7 @@
-from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
 import platform
+
+from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
+
 
 def cpu():
     return cpu_percent(interval=1)

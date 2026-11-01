@@ -1,7 +1,7 @@
 
-from app import create_app
-import app.routes as routes
+from app import create_app, routes
 from app.config import TestingConfig
+
 
 def test_root():
     app = create_app(TestingConfig)

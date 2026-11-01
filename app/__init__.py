@@ -1,7 +1,10 @@
-from flask import Flask, jsonify
 import logging
+
+from flask import Flask, jsonify
+
 from app.routes import main
 from app.settings import LOG_FILE, LOG_LEVEL
+
 
 def create_app(config_class=None):
 

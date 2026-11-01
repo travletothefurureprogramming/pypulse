@@ -1,8 +1,10 @@
-from flask import Blueprint, jsonify
-from datetime import datetime, timezone
-from app.monitor import cpu, ram, disk, system_boot_time
-import platform
 import logging
+import platform
+from datetime import UTC, datetime
+
+from flask import Blueprint, jsonify
+
+from app.monitor import cpu, disk, ram, system_boot_time
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +16,7 @@ def system_health():
         return jsonify({
             "status": "online",
             "service": "PyPulse",
-            "timestamp": datetime.now(timezone.utc).isoformat()
+            "timestamp": datetime.now(UTC).isoformat()
         }), 200
 
     except Exception:
