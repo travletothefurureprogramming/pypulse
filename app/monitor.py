@@ -12,7 +12,7 @@ def ram():
 
 
 def disk():
-    return disk_usage(r"C:" if platform.system == "Windows" else "/").percent
+    return disk_usage(r"C:" if platform.system() == "Windows" else "/").percent
 
 
 def system_boot_time():
