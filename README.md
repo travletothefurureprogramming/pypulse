@@ -1,8 +1,8 @@
 # PyPulse
 
-<img width="553" height="178" alt="Screenshot 2026-11-01 150729" src="https://github.com/user-attachments/assets/76ccbe9c-69da-49b8-998f-14901a0fdfb8" />
-<img width="323" height="226" alt="Screenshot 2026-11-01 150700" src="https://github.com/user-attachments/assets/4bd48f41-3fa8-4552-9413-69a26ae3786c" />
-<img width="375" height="211" alt="Screenshot 2026-11-01 150748" src="https://github.com/user-attachments/assets/c2d9c239-6a5d-444b-9e11-02ca5cdad2a0" />
+![Screenshot1](images/screenshot1.png)
+![Screenshot2](images/screenshot2.png)
+![Screenshot3](images/screenshot3.png)
 
 
 A small system monitoring API built with Python and Flask.
