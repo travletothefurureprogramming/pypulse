@@ -93,3 +93,10 @@ ruff format --check .
 GitHub Actions runs these checks automatically on every push and pull request.
 
 Still a work in progress. More improvements coming soon.
+
+# License
+This project is licensed under the MIT License.
+
+See the LICENSE file for the full license text.
+
+Copyright © 2026 Γρηγόριος Ιωσηφίδης
